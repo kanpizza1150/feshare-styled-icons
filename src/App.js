@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from 'react'
+import styled from 'styled-components'
+import {Lock} from 'styled-icons/material'
+import {Zap} from 'styled-icons/octicons/Zap'
+export const LockIcon = styled(Lock)`
+  color: ${props => (props.important ? 'red' : 'blue')};
+  height: 100px;
+`
+export const ZapIcon = styled(Zap)`
+  color: ${props => (props.important ? 'pink' : 'orange')};
+  height: 50px;
+  &:hover {
+    color: ${props => (props.important ? 'red' : 'blue')};
+  }
+`
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <LockIcon important={true} />
+        <LockIcon important={false} />
+        <ZapIcon important={false} />
+        <ZapIcon important={true} />
+      </>
+    )
+  }
 }
 
-export default App;
+export default App
